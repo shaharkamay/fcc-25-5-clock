@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fcc-25-5-clock/static/css/main.715d0767.chunk.css",
+    "main.js": "/fcc-25-5-clock/static/js/main.dae19cf3.chunk.js",
+    "main.js.map": "/fcc-25-5-clock/static/js/main.dae19cf3.chunk.js.map",
+    "runtime-main.js": "/fcc-25-5-clock/static/js/runtime-main.996ebe5f.js",
+    "runtime-main.js.map": "/fcc-25-5-clock/static/js/runtime-main.996ebe5f.js.map",
+    "static/js/2.6308d9b5.chunk.js": "/fcc-25-5-clock/static/js/2.6308d9b5.chunk.js",
+    "static/js/2.6308d9b5.chunk.js.map": "/fcc-25-5-clock/static/js/2.6308d9b5.chunk.js.map",
+    "static/js/3.c3bad4cf.chunk.js": "/fcc-25-5-clock/static/js/3.c3bad4cf.chunk.js",
+    "static/js/3.c3bad4cf.chunk.js.map": "/fcc-25-5-clock/static/js/3.c3bad4cf.chunk.js.map",
+    "index.html": "/fcc-25-5-clock/index.html",
+    "static/css/main.715d0767.chunk.css.map": "/fcc-25-5-clock/static/css/main.715d0767.chunk.css.map",
+    "static/js/2.6308d9b5.chunk.js.LICENSE.txt": "/fcc-25-5-clock/static/js/2.6308d9b5.chunk.js.LICENSE.txt",
+    "static/media/beep.372995a9.wav": "/fcc-25-5-clock/static/media/beep.372995a9.wav"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.996ebe5f.js",
+    "static/js/2.6308d9b5.chunk.js",
+    "static/css/main.715d0767.chunk.css",
+    "static/js/main.dae19cf3.chunk.js"
+  ]
+}
