@@ -1,11 +1,11 @@
 import React from 'react'
 import Control from './Control'
 
-function ControlsContainer() {
+function ControlsContainer({ onClick, sessionValue, breakValue }) {
     return (
         <div className="controls-container">
-            <Control labelId="break-label" labelName="Break Length" btnId="break" defaultLength="5"></Control>
-            <Control labelId="session-label" labelName="Session Length" btnId="session" defaultLength="25"></Control>
+            <Control value={breakValue} labelId="break-label" labelName="Break Length" btnId="break" onClick={onClick}></Control>
+            <Control value={sessionValue} labelId="session-label" labelName="Session Length" btnId="session" onClick={onClick}></Control>
         </div>
     )
 }
