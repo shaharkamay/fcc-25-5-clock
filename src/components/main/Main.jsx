@@ -4,6 +4,7 @@ import TimerContainer from '../timer-container/TimerContainer';
 import './main.scss';
 import hhmmss from 'hh-mm-ss';
 import Actions from '../actions/Actions';
+import audio from '../../assets/beep.wav';
 
 function Main() {
     const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -12,22 +13,27 @@ function Main() {
     const [countDown, setCountDown] = useState(sessionValue * 60);
     const [isSession, setIsSession] = useState(true);
 
+    const beep = new Audio(audio);
+
     let interval;
     const startTimer = () => {
 
-        // let countDown = 1497;
     
         interval = setTimeout(() => {
             if (countDown <= 0) {
                 // Stop Timer
                 clearTimeout(interval);
-                if(isSession) {
-                    setCountDown(breakValue * 60);
-                    setIsSession(false);
-                } else {
-                    setCountDown(sessionValue * 60);
-                    setIsSession(true);
-                }
+                beep.play();
+                setTimeout(() => {
+                    if(isSession) {
+                        setCountDown(breakValue * 60);
+                        setIsSession(false);
+                    } else {
+                        setCountDown(sessionValue * 60);
+                        setIsSession(true);
+                    }
+                    beep.pause();
+                }, 2000)
             }  else {
                 setCountDown(countDown - 1)
             }
@@ -41,14 +47,15 @@ function Main() {
     
     const onActionClick = (e) => {
         if(e.target.id === 'start_stop') {
-            if(!isTimerRunning) {
-                setIsTimerRunning(!isTimerRunning);
-            } else {
+            if(isTimerRunning) {
+                setIsTimerRunning(false);
                 clearTimeout(interval);
+            } else {
+                setIsTimerRunning(true);
             }
         } else {
-            setCountDown(sessionValue * 60);
             setIsTimerRunning(false);
+            setCountDown(sessionValue * 60);
             clearTimeout(interval);
         }
     }
@@ -58,20 +65,24 @@ function Main() {
         //Break buttons
         if(e.target.id.includes('break')) {
             if(e.target.id.includes('increment')) {
+                if(breakValue >= 60) return;
                 setBreakValue(breakValue + 1);
+                setCountDown((breakValue + 1) * 60);
             } else {
                 if(breakValue <= 1) return;
                 setBreakValue(breakValue - 1);
+                setCountDown((breakValue - 1) * 60);
             }
         //Session buttons
         } else {
             if(e.target.id.includes('increment')) {
+                if(sessionValue >= 60) return;
                 setSessionValue(sessionValue + 1)
-                setCountDown(countDown + 60);
+                setCountDown((sessionValue + 1) * 60);
             } else {
                 if(sessionValue <= 1) return;
                 setSessionValue(sessionValue - 1)
-                setCountDown(countDown - 60);
+                setCountDown((sessionValue - 1) * 60);
             }
         }
     }
